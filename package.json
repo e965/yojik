@@ -5,6 +5,8 @@
     "author": "Dmitry <dmitry@cojam.ru> (https://e965.ru)",
     "license": "MIT",
     "main": "index.js",
+    "module": "lib/index.js",
+    "types": "lib/index.d.ts",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/e965/yojik.git"
@@ -13,12 +15,15 @@
         "url": "https://github.com/e965/yojik/issues"
     },
     "scripts": {
-        "prettier": "prettier --write **/*.{json,ts}",
+        "build": "babel src -d lib",
+        "play": "npm run build && node ./playground/index.js",
+        "prettier": "prettier --write **/*.{json,js,ts}",
         "lint-staged": "lint-staged"
     },
     "lint-staged": {
-        "*.{json,ts}": [
-            "prettier --write"
+        "*.{json,js,ts}": [
+            "prettier --write",
+            "npm run build"
         ]
     },
     "husky": {
@@ -28,12 +33,12 @@
     },
     "homepage": "https://github.com/e965/yojik#readme",
     "devDependencies": {
+        "@babel/cli": "^7.10.1",
+        "@babel/core": "^7.10.2",
+        "@babel/preset-env": "^7.10.2",
         "husky": "^4.2.5",
         "lint-staged": "^10.2.10",
-        "prettier": "^2.0.5",
-        "typescript": "^3.9.5"
+        "prettier": "^2.0.5"
     },
-    "dependencies": {
-        "@babel/runtime": "^7.10.2"
-    }
+    "dependencies": {}
 }
