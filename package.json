@@ -1,0 +1,39 @@
+{
+    "name": "yojik",
+    "version": "0.0.1",
+    "description": "Simple logging tool",
+    "author": "Dmitry <dmitry@cojam.ru> (https://e965.ru)",
+    "license": "MIT",
+    "main": "index.js",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/e965/yojik.git"
+    },
+    "bugs": {
+        "url": "https://github.com/e965/yojik/issues"
+    },
+    "scripts": {
+        "prettier": "prettier --write **/*.{json,ts}",
+        "lint-staged": "lint-staged"
+    },
+    "lint-staged": {
+        "*.{json,ts}": [
+            "prettier --write"
+        ]
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "npm run lint-staged"
+        }
+    },
+    "homepage": "https://github.com/e965/yojik#readme",
+    "devDependencies": {
+        "husky": "^4.2.5",
+        "lint-staged": "^10.2.10",
+        "prettier": "^2.0.5",
+        "typescript": "^3.9.5"
+    },
+    "dependencies": {
+        "@babel/runtime": "^7.10.2"
+    }
+}
